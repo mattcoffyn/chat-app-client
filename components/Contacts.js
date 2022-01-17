@@ -5,7 +5,7 @@ const Contacts = () => {
   const { contacts } = useContacts();
   return (
     <UnorderedList>
-      {contacts.map((contact) => (
+      {contacts?.map((contact) => (
         <ListItem key={contact.id}>{contact.name}</ListItem>
       ))}
     </UnorderedList>

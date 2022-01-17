@@ -10,7 +10,7 @@ const Conversations = () => {
       spacing={4}
       align="flex-start"
     >
-      {conversations.map((conversation, i) => (
+      {conversations?.map((conversation, i) => (
         <Button
           key={i}
           isActive={conversation.selected}

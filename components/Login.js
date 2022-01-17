@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
+import { useRouter } from 'next/router';
 import { FormControl, FormLabel, Input, Button, Text } from '@chakra-ui/react';
 import { useRef } from 'react';
 import { v4 as uuidV4 } from 'uuid';
@@ -24,15 +25,18 @@ const LoginComponent = styled.div`
 `;
 
 const Login = ({ onIdSubmit }) => {
+  const router = useRouter();
   const idRef = useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
     onIdSubmit(idRef.current.value);
+    router.push('/chat');
   }
 
   function createNewId() {
     onIdSubmit(uuidV4());
+    router.push('/chat');
   }
 
   return (
@@ -44,13 +48,6 @@ const Login = ({ onIdSubmit }) => {
             Enter your ID or create a new one!
           </FormLabel>
           <Input id="id-input" type="text" ref={idRef} m="1rem 0" />
-          {/* {!isError ? (
-            <FormHelperText>
-              Choose a user id or click below to create a random one.
-            </FormHelperText>
-          ) : (
-            <FormErrorMessage>Email is required.</FormErrorMessage>
-          )} */}
         </FormControl>
         <Button type="submit" variant="solid" colorScheme="whatsapp" mr="1rem">
           Login
