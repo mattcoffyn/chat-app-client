@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
 import { useRouter } from 'next/router';
-import { FormControl, FormLabel, Input, Button, Text } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
 import { useRef } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 import styled from '@emotion/styled';
@@ -35,7 +35,8 @@ const Login = ({ onIdSubmit }) => {
   }
 
   function createNewId() {
-    onIdSubmit(uuidV4());
+    // onIdSubmit(uuidV4());
+    onIdSubmit(Math.floor(100000 + Math.random() * 900000));
     router.push('/chat');
   }
 
